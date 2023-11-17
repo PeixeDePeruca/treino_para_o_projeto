@@ -1,0 +1,40 @@
+.formulario{
+    background-color: rgb(155, 154, 154);
+    height: 30rem;
+    width: 25rem;
+    margin-left: 38%;
+    margin-top: 12%;
+    text-align: center;
+    border: white;
+    border-radius: 12px;
+
+}
+ 
+.form_container {
+    margin-top: 20%;
+}
+ 
+.form_container input {
+    margin-bottom:2%;
+}
+ 
+.form_btn{
+    background-color: red;
+    color: white;
+    width: 50%;
+    margin-top: 5%;
+    border: gray 0.1rem solid;
+    border-radius: 15px;
+    font-size: 20px;
+}
+ 
+.form_btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.title{
+    font-size: 45px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 10%;
+}

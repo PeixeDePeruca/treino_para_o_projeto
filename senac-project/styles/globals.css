@@ -2,7 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
-body{
-  background-color: rgb(134, 185, 134);
+body {
+  background-color: rgb(145, 189, 145);
 }
+
+
+
+input {
+  width: 15rem;
+  height: 2rem;
+  border: rgb(233, 81, 81);
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: white;
+}
+
+
+  input:hover {
+    background-color: black;
+  }
