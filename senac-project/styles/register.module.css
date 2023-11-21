@@ -7,6 +7,7 @@
     text-align: center;
     border: white;
     border-radius: 12px;
+    
 }
  
 .form_container {
@@ -21,7 +22,7 @@
     background-color: red;
     color: white;
     width: 50%;
-    margin-top: 5%;
+    margin-top: 10%;
     border: gray 0.1rem solid;
     border-radius: 15px;
 }
