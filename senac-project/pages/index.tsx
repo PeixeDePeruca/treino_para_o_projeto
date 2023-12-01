@@ -2,10 +2,29 @@ import { checkToken } from "@/services/tokenConfig";
 import { deleteCookie, getCookie } from "cookies-next";
 import styles from "@/styles/home.module.css";
 import { useRouter } from "next/router";
-
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const router = useRouter();
+  const [data, setdata]: any = useState();
+
+  async function fetchData() {
+    const response = await fetch(`/api/action/movie/select`, {
+      method: 'GET'
+    })
+
+    const responseJson = await response.json();
+
+    setdata(responseJson);
+
+    console.log(data)
+  }
+
+  // Funções que vão acontecer ante da página carregar
+  useEffect(() => {
+    fetchData();
+  }, []);
+
 
   function logout() {
     deleteCookie('authorization');
@@ -13,20 +32,42 @@ export default function Home() {
     router.push(`/user/login`)
   }
 
+  function movieClick(movieName:string) {
+    router.push(`/movie/` +movieName);
+  }
+
 
   return (
     <main>
-      <nav className={styles.navBar}> 
+      <nav className={styles.navBar}>
 
         <button className={styles.btnLogout} onClick={logout}>Logout</button>
       </nav>
 
       <div className={styles.container}>
 
-      {/* // Exemplo de DIV para os cards */}
-      <div className={styles.card}>
+        {
+          data != undefined && data instanceof Array ?
 
-      </div>
+            data.map(movie => (
+
+
+
+
+              <div className={styles.card} onClick={() => {movieClick(movie.name)}}>
+                <p>{movie.name}</p>
+                <p>{movie.releaseDate}</p>
+              </div>
+
+            ))
+
+            :
+
+            <div>
+              Filmes não encontrados
+            </div>
+        }
+
 
       </div>
     </main>

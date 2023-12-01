@@ -80,7 +80,7 @@ export function getServerSideProps( { req, res }:any) {
         checkToken(token);
 
      return {
-        redirec: {
+        redirect: {
             permanent: false,
             destination: '/'
             },

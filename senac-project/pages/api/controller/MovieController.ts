@@ -1,10 +1,10 @@
 import { createMovieModel, findMovieBynameModel, selectMoviesModel } from "../model/movie";
 
-export async function createMovie(name:string, releasedate:string, imageURL:string) {
+export async function createMovie(name: string, releasedate: string, imageURL: string) {
     try {
         const movieByName = await findMovieBynameModel(name);
 
-        if ( movieByName != undefined ) {
+        if (movieByName != undefined) {
             return { message: "Já tem esse filme doido,cadastre outro Movie" };
         }
 
@@ -13,7 +13,7 @@ export async function createMovie(name:string, releasedate:string, imageURL:stri
 
     }
     catch (err) {
-        return { message: "Something went errado :/ "};
+        return { message: "Something went errado :/ " };
     }
 }
 
@@ -22,9 +22,24 @@ export async function selectMovies() {
         const movies = await selectMoviesModel();
 
         return movies;
-        
+
     }
-    catch(err) {
-        return { message: "Something went wrong" }
+    catch (err) {
+        return { message: "Something went wrong" };
+    }
+}
+
+export async function findMovieByName(name: string) {
+    try {
+        const movie = await findMovieBynameModel(name);
+
+        if (movie == undefined) {
+            return { message: "Movie not found" };
+        }
+        return movie;
+
+    }
+    catch (err) {
+        return { message: "Something went werong" };
     }
 }

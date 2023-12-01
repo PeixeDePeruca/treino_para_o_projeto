@@ -29,11 +29,20 @@
     height: 90vh;
     margin-left: 10%;
     padding: 2%;
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+
 }
 
 .card {
-    width: 20%;
-    height: 30%;
-    background-color: black;
+    width: 280px;
+    height: 80%;
+    background-color: rgba(117, 25, 25, 0);
     border: white 0.1rem solid;
+    background-image: url(../public/duro_matar.jpg);
+    background-size: cover;
+    color: white;
+    font-size: x-large;
+    font-weight: bold;
 }
