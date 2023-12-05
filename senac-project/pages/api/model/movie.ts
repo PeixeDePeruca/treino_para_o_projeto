@@ -13,11 +13,13 @@ export async function createMovieModel(_name:string, _releaseDate:string, _image
 }
 
 
-
 export async function findMovieBynameModel(_name:string) {
     const movie = await prisma.movie.findUnique({
         where: {
             name: _name
+        },
+        include: {
+            ratings: true
         }
     });
 

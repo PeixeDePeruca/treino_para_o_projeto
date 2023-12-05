@@ -56,7 +56,7 @@ export default function loginPage() {
                 <div className={styles.form_container}>
                     <h1 className={styles.title}>Sistema</h1>
  
-                    <input type="text" placeholder="Login" value={formData.login} onChange={(event) => {handleFormEdit(event, 'login')}} required />
+                    <input type="text" placeholder="Username" value={formData.login} onChange={(event) => {handleFormEdit(event, 'login')}} required />
                     <br />
  
                     <input type="password" placeholder="Senha" value={formData.password} onChange={(event) => {handleFormEdit(event , 'password')}} required />

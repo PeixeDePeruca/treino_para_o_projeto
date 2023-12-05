@@ -1,6 +1,6 @@
 
 .navBar {
-    background: rgb(102, 156, 112);
+    background: rgb(97, 138, 105);
     width: 100vw;
     height: 10rem;
     padding-top: 10px;
@@ -16,10 +16,12 @@
     border: 0.2rem solid rgb(255, 255, 255);
     border-radius: 10px;
     color: white;
+    float: right;
+    margin-right: 2%;
 }
 
 .btnLogout:hover {
-    background-color: white;
+    background-color: orange;
     color: black;
 }
 

@@ -91,7 +91,7 @@ export function getServerSideProps({ req, res }: any) {
   catch (err) {
     return {
       redirect: {
-        permnanet: false,
+        permanent: false,
         destination: '/user/login'
       },
       props: {}

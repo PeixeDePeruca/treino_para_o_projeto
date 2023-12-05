@@ -25,17 +25,22 @@ export async function singIn(login:string, password:string) {
     try {
         const userByEmail = await findUserLoginByEmail(login, password);
         const userByUsername = await findUserLoginByUserName(login, password);
+        var email;
+
         if ( userByEmail == undefined && userByUsername == undefined){
             return { message: 'Invalid Login or Password'}
         }
-       
+
+
+        if ( userByEmail != undefined ) {
+            email = userByEmail.email;
+        } else {
+            email = userByUsername?.email;
+        }
 
         const _token = generateToken(login);
 
         return { token: _token };
-
-
-
 
     }
     catch {
