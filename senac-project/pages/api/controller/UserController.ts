@@ -38,7 +38,7 @@ export async function singIn(login:string, password:string) {
             email = userByUsername?.email;
         }
 
-        const _token = generateToken(login);
+        const _token = generateToken(email);
 
         return { token: _token };
 
