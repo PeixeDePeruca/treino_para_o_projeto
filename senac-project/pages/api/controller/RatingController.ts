@@ -1,5 +1,5 @@
-import { findMovieBynameModel } from "../model/movie";
-import { createRatingModel } from "../model/rating";
+import { findMovieByNameModel } from "../model/movie";
+import { createRatingModel, deleteRatingModel, findRatingByUserAndMovie } from "../model/rating";
 import { findUserByEmail } from "../model/user";
 
 
@@ -17,11 +17,18 @@ export async function createRating(value: number, comment: string,
             return { message: "User not found" };
         }
 
-        const movieByName = await findMovieBynameModel(movieName);
+        const movieByName = await findMovieByNameModel(movieName);
 
         if (movieByName == undefined) {
             return { message: "Movie not found" };
         }
+
+        const RatingByUserAndMovie = await findRatingByUserAndMovie(userByEmail.id, movieByName.id);
+
+        if (RatingByUserAndMovie != undefined) {
+            return { message: "Rating already exist" }
+        }
+
 
         const response = await createRatingModel (value, comment, userByEmail.id, movieByName.id);
 

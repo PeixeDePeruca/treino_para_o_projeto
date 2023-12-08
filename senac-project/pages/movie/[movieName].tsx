@@ -85,12 +85,16 @@ export default function page({ movieName }: any) {
                 {movie != undefined ?
 
                     <div className={styles.page}>
-                        <img src={imageMovie.src} className={styles.movieImage} />
+                        <img src={movie.imageURL} className={styles.movieImage} />
 
                         <div className={styles.movieInfos}>
-                            <p className={styles.field}>Informações do Filme</p>
-                            <p className={styles.field}>Nome do filme: {movie.name} </p>
+                           
+
+                            <hr />
+                            <p className={styles.field}>Filme: {movie.name} </p>
+                            <hr />
                             <p className={styles.field}>Data de lançamento: {movie.releaseDate} </p>
+                            <hr />
                             {/* <p> {movie.created_at} </p>
                     <p> {movie.update_at} </p> */}
                         </div>
@@ -114,10 +118,11 @@ export default function page({ movieName }: any) {
 
                         <div className={styles.ratings}>
                             {
-
+                                
                                 movie.ratings.map(rating => (
                                     <div className={styles.singleRating}>
-                                        <p className={styles.rUsername}>Usuário: Não tem nome ainda</p>
+                                        <hr />
+                                        <p className={styles.rUsername}>Usuário: {rating.user.username}</p>
                                         <p className={styles.rValue}>Nota: {rating.value}</p>
                                         <p className={styles.rComment}>{rating.comment}</p>
                                     </div>

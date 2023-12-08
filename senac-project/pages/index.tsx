@@ -55,6 +55,7 @@ export default function Home() {
 
 
               <div className={styles.card} onClick={() => {movieClick(movie.name)}}>
+                <img src={movie.imageURL} alt="" />
                 <p>{movie.name}</p>
                 <p>{movie.releaseDate}</p>
               </div>

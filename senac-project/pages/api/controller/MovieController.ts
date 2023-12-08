@@ -1,8 +1,8 @@
-import { createMovieModel, findMovieBynameModel, selectMoviesModel } from "../model/movie";
+import { createMovieModel, findMovieByNameModel, selectMoviesModel } from "../model/movie";
 
 export async function createMovie(name: string, releasedate: string, imageURL: string) {
     try {
-        const movieByName = await findMovieBynameModel(name);
+        const movieByName = await findMovieByNameModel(name);
 
         if (movieByName != undefined) {
             return { message: "Já tem esse filme doido,cadastre outro Movie" };
@@ -31,7 +31,7 @@ export async function selectMovies() {
 
 export async function findMovieByName(name: string) {
     try {
-        const movie = await findMovieBynameModel(name);
+        const movie = await findMovieByNameModel(name);
 
         if (movie == undefined) {
             return { message: "Movie not found" };
